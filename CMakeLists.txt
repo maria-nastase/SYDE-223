@@ -11,4 +11,5 @@ set (CMAKE_CXX_FLAGS "-std=c++14 -Wall ${CMAKE_CXX_FLAGS}")
 add_executable(syde223-a1
         sequential-list.cpp
         doubly-linked-list.cpp
-        test.cpp)
+        test.cpp
+        )
