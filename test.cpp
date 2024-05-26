@@ -14,7 +14,7 @@
 
 // Comment/Uncomment the .h files when you're ready to start testing
 #include "sequential-list.h"
-#include "doubly-linked-list.h"
+//#include "doubly-linked-list.h"
 
 // Once uncommented, you will need to modify the CMakeLists.txt
 // to add the .cpp file to be able to compile again.
@@ -52,12 +52,12 @@ public:
 };
 
 
-class DoublyLinkedListTest{
+/*class DoublyLinkedListTest{
 public:
     bool test1();
     bool test2();
     bool test3();
-};
+};*/
 
 int main() {
 
@@ -109,7 +109,7 @@ int main() {
     // Can put additional tests bellow.
     //
 
-    grade = 0;
+    /*grade = 0;
     DoublyLinkedListTest linked_test;
 
     string linked_test_descriptions[3] = {
@@ -156,7 +156,7 @@ int main() {
     //
 
 
-    return 0;
+    return 0;*/
 }
 
 
@@ -385,11 +385,11 @@ bool SequentialListTest::test10() {
     return true;
 }
 
-
+/*
 //############# DoublyLinkedListTest function definitions ###########
 
 // New empty list is valid
-bool DoublyLinkedListTest::test1()
+/*bool DoublyLinkedListTest::test1()
 {
     DoublyLinkedList list;
     ASSERT_TRUE(list.size() == 0)
@@ -440,4 +440,4 @@ bool DoublyLinkedListTest::test3()
     ASSERT_TRUE(list.head_->prev == NULL && list.tail_->next == NULL)
 
     return true;
-}
+}*/
