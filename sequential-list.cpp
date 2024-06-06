@@ -79,10 +79,11 @@ bool SequentialList::insert(DataType val, unsigned int index) {
     if (index > size_ || size_ >= capacity_) {
         return false;
     }
-    else if (size_ == 0) {
-        data_[0] = val;
-        size_++;
-        return true;
+    else if (index == 0) {
+        return insert_front(val);
+    }
+    else if (index == size_) {
+        return insert_back(val);
     }
     else {
         for (int i = size_ - 1; i >= static_cast<int>(index); i--) {
@@ -130,6 +131,12 @@ bool SequentialList::insert_back(DataType val) {
 bool SequentialList::remove(unsigned int index) {
     if (size_ == 0 || index >= size_) {
         return false;
+    }
+    else if (index == 0) {
+        return remove_front();
+    }
+    else if (index == size_ - 1){
+        return remove_back();
     }
     else {
         for (int i = index + 1; i < size_; i++) {
