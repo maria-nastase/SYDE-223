@@ -123,32 +123,14 @@ bool DoublyLinkedList::insert(DataType value, unsigned int index) {
         return false;
     }
     else {
-        Node* newNode = new Node(value);
         if (index == 0) {
-            newNode -> prev = nullptr;
-            if (head_ == nullptr) {
-                newNode -> next = nullptr;
-                tail_ = newNode;
-            }
-            else {
-                newNode -> next = head_;
-                head_ -> prev = newNode;
-            }
-            head_ = newNode;
+            return insert_front(value);
         }
         else if (index == size_){
-            newNode -> next = nullptr;
-            if (head_ == nullptr) {
-                newNode -> prev = nullptr;
-                head_ = newNode;
-            }
-            else {
-                newNode -> prev = tail_;
-                tail_ -> next = newNode;
-            }
-            tail_ = newNode;
+            return insert_back(value);
         }
         else {
+            Node* newNode = new Node(value);
             Node* nextNode = getNode(index);
             newNode -> prev = nextNode -> prev;
             nextNode -> prev = newNode;
