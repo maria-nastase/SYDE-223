@@ -15,8 +15,6 @@ DoublyLinkedList::DoublyLinkedList() {
 
 
 DoublyLinkedList::~DoublyLinkedList() {
-    //delete head_;
-    //delete tail_;
 
     Node* tempPtr;
     tempPtr = head_;
@@ -212,34 +210,23 @@ bool DoublyLinkedList::remove(unsigned int index) {
         return false;
     }
     else {
-        Node* tempPtr;
         if (index == 0) {
-            tempPtr = head_;
-            if (size_ == 1) {
-                head_ = nullptr;
-                tail_ = nullptr;
-            }
-            else {
-                head_ = tempPtr -> next;
-                head_ -> prev = nullptr;
-            }
+            remove_front();
         }
         else if (index == size_ - 1) {
-            tempPtr = tail_ -> prev;
-            tempPtr -> next = nullptr;
-            tail_ -> prev = nullptr;
-            tail_ = tempPtr;
+            remove_back();
         }
         else {
+            Node* tempPtr;
             tempPtr = getNode(index);
             tempPtr -> prev -> next = tempPtr -> next;
             tempPtr -> next -> prev = tempPtr -> prev;
             tempPtr -> prev = nullptr;
             tempPtr -> next = nullptr;
+            delete tempPtr;
+            tempPtr = nullptr;
+            size_--;
         }
-        delete tempPtr;
-        tempPtr = nullptr;
-        size_--;
         return true;
     }
 }
@@ -257,6 +244,7 @@ bool DoublyLinkedList::remove_front() {
         } else {
             head_ = tempPtr->next;
             head_->prev = nullptr;
+            tempPtr -> next = nullptr;
         }
         delete tempPtr;
         tempPtr = nullptr;
@@ -272,14 +260,14 @@ bool DoublyLinkedList::remove_back() {
     }
     else {
         Node *tempPtr;
+        tempPtr = tail_;
         if (size_ == 1) {
             head_ = nullptr;
             tail_ = nullptr;
         } else {
-            tempPtr = tail_->prev;
-            tempPtr->next = nullptr;
-            tail_->prev = nullptr;
-            tail_ = tempPtr;
+            tempPtr-> prev -> next = nullptr;
+            tail_ = tempPtr -> prev;
+            tempPtr -> prev = nullptr;
         }
         delete tempPtr;
         tempPtr = nullptr;

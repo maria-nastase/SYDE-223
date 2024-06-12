@@ -87,7 +87,7 @@ int main() {
         "Test11: replace() works properly"
     };
 
-    bool seq_test_results[10];
+    bool seq_test_results[11];
     seq_test_results[0] = seq_test.test1();
     seq_test_results[1] = seq_test.test2();
     seq_test_results[2] = seq_test.test3();
@@ -143,13 +143,13 @@ int main() {
     linked_test_results[4] = linked_test.test5();
     linked_test_results[5] = linked_test.test6();
     linked_test_results[6] = linked_test.test7();
-    /*linked_test_results[7] = linked_test.test8();
+    linked_test_results[7] = linked_test.test8();
     linked_test_results[8] = linked_test.test9();
-    linked_test_results[9] = linked_test.test10();*/
+    linked_test_results[9] = linked_test.test10();
 
     cout << "DOUBLY LINKED LIST TESTING RESULTS \n";
     cout << "********************************** \n";
-    for (int i = 0; i < 7; ++i)
+    for (int i = 0; i < 10; ++i)
     {
         cout << linked_test_descriptions[i] << endl
              << get_status_str(linked_test_results[i]) << endl;
@@ -552,14 +552,70 @@ bool DoublyLinkedListTest::test7() {
     return true;
 }
 
-/*bool DoublyLinkedListTest::test8() {
+bool DoublyLinkedListTest::test8() {
+    const int num_elems = 4;
+    DoublyLinkedList list;
 
+    for (int i = 0; i < num_elems; i++) {
+        ASSERT_TRUE(list.insert_back(i))
+    }
+
+    for (int i = 0; i < num_elems; i++) {
+        ASSERT_TRUE(list.remove_back())
+    }
+
+    // Try a bunch of invalid commands.
+    ASSERT_FALSE(list.remove_front())
+    ASSERT_FALSE(list.remove_front())
+    ASSERT_FALSE(list.remove(0))
+    ASSERT_TRUE(list.empty() && list.size_ == 0)
+
+    int expected_value = 1234;
+    ASSERT_TRUE(list.insert(expected_value, 0))
+    ASSERT_TRUE(list.select(0) == expected_value)
+
+    return true;
 }
 
 bool DoublyLinkedListTest::test9() {
+    unsigned int num_elem = 5;
+    DoublyLinkedList list;
 
+    ASSERT_TRUE(list.insert_back(32))
+    ASSERT_TRUE(list.insert_front(44))
+    ASSERT_TRUE(list.insert(12, 2))
+    ASSERT_TRUE(list.remove_back())
+    ASSERT_TRUE(list.remove_front())
+    ASSERT_TRUE(list.insert_back(88))
+    ASSERT_TRUE(list.remove(1))
+    ASSERT_TRUE(list.insert(99, 0))
+
+    // Check that the list has the right values
+    ASSERT_TRUE(list.select(0) == 99 && list.select(0) == 99)
+    ASSERT_TRUE(list.select(1) == 32 && list.select(1) == 32)
+
+    return true;
 }
 
 bool DoublyLinkedListTest::test10() {
+    DoublyLinkedList list;
 
-};*/
+    ASSERT_FALSE(list.remove(0))
+    ASSERT_TRUE(list.insert_back(32))
+    ASSERT_TRUE(list.insert_front(44))
+    ASSERT_FALSE(list.insert(12, 3))
+    ASSERT_TRUE(list.insert(12, 2))
+    ASSERT_TRUE(list.remove_back())
+    ASSERT_FALSE(list.remove(5))
+    ASSERT_TRUE(list.remove_front())
+    ASSERT_TRUE(list.insert_back(88))
+    ASSERT_FALSE(list.insert(12345, 6))
+    ASSERT_TRUE(list.remove(1))
+    ASSERT_TRUE(list.insert(99, 0))
+
+    // Check that the list has the right values
+    ASSERT_TRUE(list.select(0) == 99 && list.select(0) == 99)
+    ASSERT_TRUE(list.select(1) == 32 && list.select(1) == 32)
+
+    return true;
+}
