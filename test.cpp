@@ -578,7 +578,6 @@ bool DoublyLinkedListTest::test8() {
 }
 
 bool DoublyLinkedListTest::test9() {
-    unsigned int num_elem = 5;
     DoublyLinkedList list;
 
     ASSERT_TRUE(list.insert_back(32))
@@ -591,8 +590,8 @@ bool DoublyLinkedListTest::test9() {
     ASSERT_TRUE(list.insert(99, 0))
 
     // Check that the list has the right values
-    ASSERT_TRUE(list.select(0) == 99 && list.select(0) == 99)
-    ASSERT_TRUE(list.select(1) == 32 && list.select(1) == 32)
+    ASSERT_TRUE(list.select(0) == 99)
+    ASSERT_TRUE(list.select(1) == 32)
 
     return true;
 }
@@ -614,8 +613,8 @@ bool DoublyLinkedListTest::test10() {
     ASSERT_TRUE(list.insert(99, 0))
 
     // Check that the list has the right values
-    ASSERT_TRUE(list.select(0) == 99 && list.select(0) == 99)
-    ASSERT_TRUE(list.select(1) == 32 && list.select(1) == 32)
+    ASSERT_TRUE(list.select(0) == 99)
+    ASSERT_TRUE(list.select(1) == 32)
 
     return true;
 }
