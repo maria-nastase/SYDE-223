@@ -1,3 +1,0 @@
-C:/Users/Maria/SYDE 223/mnastase/cmake-build-debug/CMakeFiles/syde223-a1.dir
-C:/Users/Maria/SYDE 223/mnastase/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Maria/SYDE 223/mnastase/cmake-build-debug/CMakeFiles/rebuild_cache.dir
